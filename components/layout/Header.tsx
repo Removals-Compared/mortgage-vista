@@ -23,7 +23,11 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  React.useEffect(() => setOpen(false), [pathname]);
+  const [lastPath, setLastPath] = React.useState(pathname);
+  if (lastPath !== pathname) {
+    setLastPath(pathname);
+    if (open) setOpen(false);
+  }
 
   return (
     <header

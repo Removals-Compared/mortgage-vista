@@ -24,7 +24,10 @@ export function CookieBanner() {
   React.useEffect(() => {
     if (typeof window === "undefined") return;
     const existing = window.localStorage.getItem(STORAGE_KEY);
-    if (!existing) setOpen(true);
+    if (!existing) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setOpen(true);
+    }
   }, []);
 
   function save(c: Omit<Consent, "decidedAt" | "necessary">) {
