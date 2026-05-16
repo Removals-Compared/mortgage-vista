@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
@@ -41,16 +42,17 @@ export function Header() {
       <Container className="flex h-16 items-center justify-between text-white">
         <Link
           href="/"
-          className="flex items-center gap-2 text-lg font-bold tracking-tight"
+          className="flex items-center"
           aria-label={`${siteConfig.name} home`}
         >
-          <span
-            aria-hidden
-            className="grid h-8 w-8 place-items-center rounded-lg bg-brand-gold text-brand-black font-extrabold"
-          >
-            M
-          </span>
-          <span className="hidden sm:inline">{siteConfig.shortName}</span>
+          <Image
+            src="/brand/logo-on-dark-160.png"
+            alt={siteConfig.name}
+            width={160}
+            height={62}
+            priority
+            className="h-9 w-auto sm:h-10"
+          />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1" aria-label="Main">

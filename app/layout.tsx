@@ -44,11 +44,20 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     title: `${siteConfig.name} — UK Mortgage Brokers`,
     description: siteConfig.description,
+    images: [
+      {
+        url: "/brand/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: siteConfig.name,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} — UK Mortgage Brokers`,
     description: siteConfig.description,
+    images: ["/brand/og-image.png"],
   },
   robots: {
     index: true,

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { footerNav } from "@/config/navigation";
@@ -11,14 +12,18 @@ export function Footer() {
       <Container className="py-16">
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <Link href="/" className="inline-flex items-center gap-2 text-white">
-              <span
-                aria-hidden
-                className="grid h-9 w-9 place-items-center rounded-lg bg-brand-gold text-brand-black font-extrabold"
-              >
-                M
-              </span>
-              <span className="text-lg font-bold">{siteConfig.name}</span>
+            <Link
+              href="/"
+              className="inline-flex items-center"
+              aria-label={`${siteConfig.name} home`}
+            >
+              <Image
+                src="/brand/logo-on-dark-320.png"
+                alt={siteConfig.name}
+                width={320}
+                height={124}
+                className="h-12 w-auto"
+              />
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/60">
               {siteConfig.description}
