@@ -35,7 +35,7 @@ export function EmailResultsForm({
   if (status === "ok") {
     return (
       <p className="rounded-xl bg-brand-divider px-4 py-3 text-sm text-brand-ink no-print">
-        Sent — check your inbox in a few minutes.
+        Sent. Check your inbox in a few minutes.
       </p>
     );
   }
@@ -62,7 +62,7 @@ export function EmailResultsForm({
       </Button>
       {status === "err" && (
         <p className="text-xs text-brand-error sm:basis-full">
-          Couldn&apos;t send — please try again.
+          Couldn&apos;t send. Please try again.
         </p>
       )}
     </form>

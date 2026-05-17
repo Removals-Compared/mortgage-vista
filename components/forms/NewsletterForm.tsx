@@ -35,7 +35,7 @@ export function NewsletterForm() {
   if (status === "ok") {
     return (
       <p className="text-sm text-brand-gold-light">
-        Thank you — we&apos;ll be in touch with rate updates.
+        Thanks. We&apos;ll be in touch with rate updates.
       </p>
     );
   }

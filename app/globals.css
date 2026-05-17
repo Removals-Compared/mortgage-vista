@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /*
-  Mortgage Vista Limited — design tokens
+  Mortgage Vista Limited design tokens.
   Brand discipline: black + white + gold accent. Gold is reserved for
   CTAs, emphasis, large headings, badges, dividers, and the base-rate
   banner. Never used for body copy or as a large fill.
@@ -52,14 +52,14 @@ h1, h2, h3, h4, h5 {
   letter-spacing: -0.02em;
 }
 
-/* Focus ring — visible, accessible, brand-aligned */
+/* Focus ring: visible, accessible, brand-aligned. */
 :where(a, button, input, select, textarea, [role="button"], [tabindex="0"]):focus-visible {
   outline: 2px solid var(--color-brand-gold);
   outline-offset: 2px;
   border-radius: 6px;
 }
 
-/* Skip-link — visually hidden until focused */
+/* Skip-link: visually hidden until focused. */
 .skip-link {
   position: absolute;
   top: -40px;
@@ -78,7 +78,7 @@ h1, h2, h3, h4, h5 {
   top: 0;
 }
 
-/* Print styles — clean calculator print */
+/* Print styles for clean calculator print. */
 @media print {
   header, footer, nav, .no-print { display: none !important; }
   body { background: #ffffff; color: #000000; }

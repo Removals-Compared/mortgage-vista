@@ -36,7 +36,7 @@ export function HowItWorks() {
             From first call to keys in the door
           </h2>
           <p className="mt-4 text-brand-muted">
-            We do the digging, the paperwork, and the chasing — so you only
+            We do the digging, the paperwork, and the chasing, so you only
             have to make decisions, not manage processes.
           </p>
         </div>

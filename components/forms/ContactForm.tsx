@@ -260,7 +260,7 @@ export function ContactForm() {
 
       {status === "err" && (
         <p className="mt-4 text-sm text-brand-error">
-          Sorry — something went wrong. Please try again or call us directly.
+          Sorry, something went wrong. Please try again or call us directly.
         </p>
       )}
     </form>

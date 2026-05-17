@@ -50,7 +50,7 @@ export function QuickQuoteForm({ context }: { context?: string }) {
       <div className="rounded-2xl border border-brand-border bg-brand-surface p-6 text-center">
         <CheckCircle2 className="mx-auto h-10 w-10 text-brand-success" />
         <h3 className="mt-3 text-lg font-semibold text-brand-ink">
-          Got it — thanks.
+          Got it. Thanks.
         </h3>
         <p className="mt-2 text-sm text-brand-muted">
           A specialist adviser will be in touch within one working day.
@@ -140,7 +140,7 @@ export function QuickQuoteForm({ context }: { context?: string }) {
       </Button>
       {status === "err" && (
         <p className="text-sm text-brand-error">
-          Sorry — something went wrong. Please call us instead.
+          Sorry, something went wrong. Please call us instead.
         </p>
       )}
     </form>

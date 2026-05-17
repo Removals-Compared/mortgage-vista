@@ -36,7 +36,7 @@ export const services = [
     slug: "bad-credit-mortgages",
     title: "Bad Credit Mortgages",
     short: "Bad Credit",
-    summary: "Defaults, CCJs, late payments — specialist lenders who look at the full picture.",
+    summary: "Defaults, CCJs, late payments. Specialist lenders who look at the full picture.",
     icon: "ShieldCheck",
   },
   {

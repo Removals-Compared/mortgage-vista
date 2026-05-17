@@ -2,7 +2,7 @@
 title: "Buy-to-Let Tax Changes: Latest Rules Explained"
 category: "Investment"
 date: "2026-03-28"
-excerpt: "Section 24, the 5% SDLT surcharge, limited-company SPVs, the new CGT rates and Making Tax Digital — what BTL landlords need to know in 2026."
+excerpt: "Section 24, the 5% SDLT surcharge, limited-company SPVs, the new CGT rates and Making Tax Digital: what BTL landlords need to know in 2026."
 author: "Priya Desai"
 ---
 
@@ -26,7 +26,7 @@ For a basic-rate taxpayer the effect is broadly neutral. For higher and addition
 
 The Stamp Duty Land Tax (SDLT) surcharge on additional residential properties is currently 5%, applied on top of the standard rates. So a £300,000 second property attracts:
 
-- Standard SDLT: £2,500 (2% of £125k–£250k = £2,500; 5% of £50k = £2,500; total £5,000)
+- Standard SDLT: £2,500 (2% of £125k-£250k = £2,500; 5% of £50k = £2,500; total £5,000)
 - Plus 5% surcharge on the full £300,000 = £15,000
 - **Total SDLT: £20,000**
 
@@ -34,17 +34,17 @@ For non-UK residents, an additional 2% layer applies. A non-resident buying that
 
 ## The case for limited-company SPVs
 
-A Special Purpose Vehicle (SPV) — typically a limited company set up specifically to hold rental property — sidesteps Section 24 because corporation tax treats mortgage interest as a normal allowable expense. The numbers:
+A Special Purpose Vehicle (SPV) is typically a limited company set up specifically to hold rental property. It sidesteps Section 24 because corporation tax treats mortgage interest as a normal allowable expense. The numbers:
 
 - Corporation tax on company profits: 19% up to £50,000, 25% above £250,000, with marginal relief in between
 - Full mortgage interest deductibility against rental income
 - Dividends drawn from the company taxed at the shareholder's dividend rate (8.75% basic, 33.75% higher, 39.35% additional, after the £500 allowance)
 
-For higher-rate taxpayers building a portfolio, the SPV structure usually wins on tax even after factoring in the slightly higher mortgage rates lenders charge limited companies — typically 30-50 basis points above personal-name BTL.
+For higher-rate taxpayers building a portfolio, the SPV structure usually wins on tax even after factoring in the slightly higher mortgage rates lenders charge limited companies (typically 30-50 basis points above personal-name BTL).
 
 Caveats worth flagging:
 
-1. Transferring existing personally held property into a company is a sale for CGT and SDLT purposes — it is not a paperwork exercise.
+1. Transferring existing personally held property into a company is a sale for CGT and SDLT purposes. It isn't a paperwork exercise.
 2. Company accounts and corporation tax returns add £600-£1,200 a year in compliance costs per company.
 3. Extracting profits as dividends adds a second layer of personal tax. For landlords who want to reinvest rather than draw income, the SPV is more efficient than for those who want to live off the rent.
 
@@ -81,10 +81,10 @@ For a typical higher-rate landlord with a £200,000 BTL on a 75% LTV mortgage at
 - Net pre-tax cash flow: ~£4,600
 - After tax (including Section 24 effect): ~£1,800
 
-That is a 0.9% net yield on equity. Capital growth needs to do the heavy lifting for the investment to make sense.
+That's a 0.9% net yield on equity. Capital growth needs to do the heavy lifting for the investment to make sense.
 
 ## Practical next steps
 
-- If you hold property personally and you are a higher-rate taxpayer, run the SPV-comparison numbers with an accountant before your next purchase.
+- If you hold property personally and you're a higher-rate taxpayer, run the SPV-comparison numbers with an accountant before your next purchase.
 - Diary your MTD obligations now if your income exceeds the threshold.
-- Review your property's EPC rating ahead of tightening minimum standards — band C is the proposed floor for new tenancies from 2028.
+- Review your property's EPC rating ahead of tightening minimum standards. Band C is the proposed floor for new tenancies from 2028.

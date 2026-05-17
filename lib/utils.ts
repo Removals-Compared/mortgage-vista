@@ -20,12 +20,12 @@ const gbpExact = new Intl.NumberFormat("en-GB", {
 });
 
 export function formatGBP(value: number, exact = false) {
-  if (!Number.isFinite(value)) return "—";
+  if (!Number.isFinite(value)) return "n/a";
   return (exact ? gbpExact : gbp).format(value);
 }
 
 export function formatPercent(value: number, fractionDigits = 2) {
-  if (!Number.isFinite(value)) return "—";
+  if (!Number.isFinite(value)) return "n/a";
   return `${value.toFixed(fractionDigits)}%`;
 }
 

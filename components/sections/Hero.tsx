@@ -7,7 +7,7 @@ import { siteConfig } from "@/config/site";
 export function Hero() {
   return (
     <div className="relative isolate overflow-hidden bg-brand-black text-white">
-      {/* Subtle radial accent — black-on-black, gold dot */}
+      {/* Subtle radial accent. Black on black with a gold dot. */}
       <div
         aria-hidden
         className="pointer-events-none absolute -top-32 -right-24 h-[500px] w-[500px] rounded-full bg-brand-gold/10 blur-3xl"
@@ -27,7 +27,7 @@ export function Hero() {
           </h1>
           <p className="mt-6 text-lg text-white/70 sm:text-xl">
             Independent advice from advisers who&apos;ve arranged thousands of UK
-            mortgages — across every situation, lender, and credit profile.
+            mortgages across every situation, lender, and credit profile.
             Free initial consultation, no obligation.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">

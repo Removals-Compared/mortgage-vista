@@ -6,9 +6,9 @@ import { getAllPosts, categories } from "@/lib/posts";
 import { CategoryFilter } from "./CategoryFilter";
 
 export const metadata = {
-  title: "Insights — UK Mortgage Market News & Buyer Guides",
+  title: "Insights | UK Mortgage Market News & Buyer Guides",
   description:
-    "Mortgage market commentary, buyer guides, remortgaging strategy, and self-employed lending insights — written by FCA-regulated UK advisers.",
+    "Mortgage market commentary, buyer guides, remortgaging strategy, and self-employed lending insights, written by FCA-regulated UK advisers.",
 };
 
 export default async function InsightsPage({
@@ -34,7 +34,7 @@ export default async function InsightsPage({
           </h1>
           <p className="mt-5 max-w-2xl text-white/70">
             Market commentary, buyer guides, and behind-the-scenes notes from
-            our advisers&apos; live caseloads. No SEO filler — every article
+            our advisers&apos; live caseloads. No SEO filler. Every article
             was written because we got asked the same question often enough.
           </p>
         </Container>
@@ -78,7 +78,7 @@ export default async function InsightsPage({
 
           {filtered.length === 0 && (
             <div className="mt-10 rounded-2xl border border-brand-border bg-white p-10 text-center text-brand-muted">
-              No articles in this category yet — check back soon.
+              No articles in this category yet. Check back soon.
             </div>
           )}
         </Container>
@@ -86,7 +86,7 @@ export default async function InsightsPage({
 
       <CTASection
         title="Got a question we haven't answered yet?"
-        body="If your situation isn't covered above, ask us — we'll either point you to the right adviser or write a piece on it."
+        body="If your situation isn't covered above, ask us. We'll either point you to the right adviser or write a piece on it."
       />
     </>
   );

@@ -43,11 +43,11 @@ export const siteConfig = {
    * Firm Reference Number issued by the Financial Conduct Authority.
    */
   regulatory: {
-    fcaFrn: "[FRN PLACEHOLDER — replace with real number]",
+    fcaFrn: "[FRN PLACEHOLDER: replace with real number]",
     fcaRegisterUrl: "https://register.fca.org.uk/",
     companyNumber: "[COMPANIES HOUSE NO. PLACEHOLDER]",
     icoNumber: "[ICO REGISTRATION PLACEHOLDER]",
-    /** Repossession warning — required on every page footer. */
+    /** Repossession warning. Required on every page footer. */
     repossessionWarning:
       "Your home may be repossessed if you do not keep up repayments on your mortgage.",
     equityReleaseWarning:

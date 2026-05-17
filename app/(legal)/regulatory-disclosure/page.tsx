@@ -43,7 +43,7 @@ export default function RegulatoryDisclosure() {
       <h2>3. Whole-of-market or panel?</h2>
       <p>
         For regulated mortgages we offer a comprehensive range of mortgages
-        from across the market — sometimes referred to as &quot;whole of
+        from across the market, sometimes referred to as &quot;whole of
         market&quot;. For equity release, we offer products from a panel of
         lenders that meet Equity Release Council standards.
       </p>
@@ -51,7 +51,7 @@ export default function RegulatoryDisclosure() {
       <h2>4. Our fees</h2>
       <p>
         {siteConfig.regulatory.feeDisclosure} A typical fee is{" "}
-        <strong>[FEE PLACEHOLDER — e.g. £495]</strong>, payable on application.
+        <strong>[FEE PLACEHOLDER, e.g. £495]</strong>, payable on application.
         We will also be paid commission (a procuration fee) by the lender on
         completion. Both will be confirmed in writing in your Initial
         Disclosure Document and Client Agreement before you commit.

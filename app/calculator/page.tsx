@@ -10,9 +10,9 @@ import { CTASection } from "@/components/sections/CTASection";
 import { ratesConfig } from "@/config/rates";
 
 export const metadata = {
-  title: "Mortgage Calculators — Repayment, Affordability, Stamp Duty",
+  title: "Mortgage Calculators | Repayment, Affordability, Stamp Duty",
   description:
-    "Free UK mortgage calculators. Work out monthly payments, how much you can borrow, and stamp duty due — at the current 3.75% Bank of England base rate.",
+    "Free UK mortgage calculators. Work out monthly payments, how much you can borrow, and stamp duty due at the current 3.75% Bank of England base rate.",
 };
 
 export default function CalculatorPage() {
@@ -29,7 +29,7 @@ export default function CalculatorPage() {
           </h1>
           <p className="mt-5 max-w-2xl text-white/70">
             Three calculators built on real UK mortgage maths. Default rates
-            are pulled from current market averages — change anything to
+            are pulled from current market averages. Change anything to
             stress-test your own scenario.
           </p>
         </Container>
@@ -83,8 +83,8 @@ export default function CalculatorPage() {
               months. For interest-only mortgages we calculate{" "}
               <code className="rounded bg-brand-divider px-1.5 py-0.5 text-xs">
                 M = P × r
-              </code>{" "}
-              — the capital is repaid separately at the end of the term.
+              </code>
+              . The capital is repaid separately at the end of the term.
             </p>
             <p>
               <strong className="text-brand-ink">Affordability</strong> takes a
@@ -93,7 +93,7 @@ export default function CalculatorPage() {
               estimated net income, and deducts £
               {ratesConfig.dependantDeduction.toLocaleString("en-GB")} per
               dependant from annual borrowing capacity. Real lender stress
-              tests vary materially — some are tighter, some looser depending
+              tests vary materially. Some are tighter, some looser, depending
               on the product.
             </p>
             <p>

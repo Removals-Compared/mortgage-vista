@@ -31,7 +31,7 @@ export const contactSchema = z.object({
   consent: z.boolean().refine((v) => v === true, {
     message: "Please accept the privacy notice to continue",
   }),
-  // honeypot field — must be empty
+  // honeypot field. Must be empty.
   website: z.string().max(0).optional(),
 });
 

@@ -30,7 +30,7 @@ const reasons = [
   {
     icon: MessagesSquare,
     title: "One adviser, start to finish",
-    body: "You'll have the same dedicated adviser from first call to completion — no call-centre handovers.",
+    body: "You'll have the same dedicated adviser from first call to completion. No call-centre handovers.",
   },
 ];
 

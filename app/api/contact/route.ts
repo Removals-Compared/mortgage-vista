@@ -23,7 +23,7 @@ export const runtime = "nodejs";
  *        from: process.env.MAIL_FROM!,
  *        to: process.env.MAIL_TO!,
  *        replyTo: parsed.data.email,
- *        subject: `New enquiry — ${parsed.data.firstName ?? parsed.data.name}`,
+ *        subject: `New enquiry from ${parsed.data.firstName ?? parsed.data.name}`,
  *        text: JSON.stringify(parsed.data, null, 2),
  *      });
  * 4. Optionally also push the lead to your CRM (HubSpot, Pipedrive, etc.)
@@ -37,7 +37,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
 
-  // Honeypot — bots fill in the hidden field. Pretend success.
+  // Honeypot. Bots fill in the hidden field. Pretend success.
   if (
     typeof body === "object" &&
     body !== null &&
@@ -60,7 +60,7 @@ export async function POST(req: Request) {
 
   const data = detailed.success ? detailed.data : quick.data;
 
-  // TODO: send email — see file header above.
+  // TODO: send email. See file header above.
   console.log("[contact] new enquiry", data);
 
   return NextResponse.json({ ok: true });

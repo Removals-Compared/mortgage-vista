@@ -1,5 +1,5 @@
 /**
- * Pure mortgage maths. No React, no DOM — easy to test and re-use.
+ * Pure mortgage maths. No React, no DOM. Easy to test and re-use.
  */
 
 import { ratesConfig, type SdltBand } from "@/config/rates";
@@ -127,7 +127,7 @@ export function calculateAffordability(
   i: AffordabilityInputs,
 ): AffordabilityResult {
   const combinedIncome = Math.max(0, i.income1) + Math.max(0, i.income2);
-  // Net income approximation — UK 2026: tax-free £12,570, basic 20% to £50,270,
+  // Net income approximation. UK 2026: tax-free £12,570, basic 20% to £50,270,
   // higher 40% to £125,140. Used purely to estimate outgoings ratio; not financial advice.
   const netIncomeMonthly = estimateNetMonthly(combinedIncome);
   const totalOutgoings = i.monthlyOutgoings + i.monthlyCredit;

@@ -61,7 +61,7 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Regulatory wording — required on every page */}
+        {/* Regulatory wording. Required on every page. */}
         <div className="mt-12 border-t border-white/10 pt-8 text-xs leading-relaxed text-white/55 space-y-3">
           <p className="font-semibold text-white">
             {siteConfig.regulatory.repossessionWarning}

@@ -38,7 +38,7 @@ export async function POST(req: Request) {
     );
   }
 
-  // TODO: send a formatted results email — see file header.
+  // TODO: send a formatted results email. See file header.
   console.log(
     `[calculator-result] ${parsed.data.resultsType} -> ${parsed.data.email}`,
     parsed.data.payload,

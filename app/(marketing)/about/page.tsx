@@ -4,7 +4,7 @@ import { CTASection } from "@/components/sections/CTASection";
 import { siteConfig } from "@/config/site";
 
 export const metadata = {
-  title: "About Us — UK Mortgage Brokers",
+  title: "About Us | UK Mortgage Brokers",
   description:
     "Independent, FCA-regulated UK mortgage advisers. Meet the team and learn how we work.",
 };
@@ -18,7 +18,7 @@ const values = [
   {
     icon: Heart,
     title: "Patient with the hard cases",
-    body: "Self-employed, contractor income, prior credit issues, complex incomes — we treat these as the start of a conversation, not a reason to say no.",
+    body: "Self-employed, contractor income, prior credit issues, complex incomes. We treat these as the start of a conversation, not a reason to say no.",
   },
   {
     icon: Sparkles,
@@ -36,22 +36,22 @@ const team = [
   {
     name: "[Adviser Name]",
     role: "Founder & Senior Mortgage Adviser",
-    bio: "[CLIENT TO PROVIDE — short bio. Mention years in the industry, qualifications such as CeMAP or CeRER, areas of speciality.]",
+    bio: "[CLIENT TO PROVIDE: short bio. Mention years in the industry, qualifications such as CeMAP or CeRER, areas of speciality.]",
   },
   {
     name: "[Adviser Name]",
     role: "Specialist Mortgage Adviser",
-    bio: "[CLIENT TO PROVIDE — bio focused on this adviser's area. e.g. self-employed, complex BTL, equity release.]",
+    bio: "[CLIENT TO PROVIDE: bio focused on this adviser's area. e.g. self-employed, complex BTL, equity release.]",
   },
   {
     name: "[Adviser Name]",
     role: "Buy-to-Let & Commercial Specialist",
-    bio: "[CLIENT TO PROVIDE — relevant experience with portfolio landlords, limited-company SPVs, commercial premises.]",
+    bio: "[CLIENT TO PROVIDE: relevant experience with portfolio landlords, limited-company SPVs, commercial premises.]",
   },
   {
     name: "[Adviser Name]",
     role: "Client Manager",
-    bio: "[CLIENT TO PROVIDE — operations and client liaison. Years with the firm, what they handle day to day.]",
+    bio: "[CLIENT TO PROVIDE: operations and client liaison. Years with the firm, what they handle day to day.]",
   },
 ];
 
@@ -64,12 +64,12 @@ export default function AboutPage() {
             About {siteConfig.name}
           </p>
           <h1 className="mt-3 max-w-3xl text-4xl font-extrabold tracking-tight sm:text-5xl">
-            Independent UK mortgage brokers — not a call centre
+            Independent UK mortgage brokers, not a call centre
           </h1>
           <p className="mt-5 max-w-2xl text-white/70">
             We arranged our first mortgage in {2026 - siteConfig.stats.yearsExperience}.
             Since then we&apos;ve helped thousands of UK households into the
-            right home loan — first-time buyers, remortgagors, landlords,
+            right home loan. First-time buyers, remortgagors, landlords,
             self-employed, retirees. The model is simple: honest advice,
             clearly explained.
           </p>
@@ -78,7 +78,7 @@ export default function AboutPage() {
 
       <Section bg="white">
         <Container className="max-w-3xl">
-          {/* CLIENT TO FILL IN — Company story */}
+          {/* CLIENT TO FILL IN: Company story */}
           <p className="text-sm font-semibold uppercase tracking-wider text-brand-gold">
             Our story
           </p>
@@ -87,10 +87,10 @@ export default function AboutPage() {
           </h2>
           <div className="mt-6 space-y-5 text-brand-muted leading-relaxed">
             <p>
-              {`[CLIENT TO PROVIDE — the founding story. When was the company started, why, and by whom? Two or three short paragraphs. Mention any defining moments: the first complex case you took on, why you decided to stay independent, the values you brought from previous roles.]`}
+              {`[CLIENT TO PROVIDE: the founding story. When was the company started, why, and by whom? Two or three short paragraphs. Mention any defining moments: the first complex case you took on, why you decided to stay independent, the values you brought from previous roles.]`}
             </p>
             <p>
-              {`[Continue with the practical evolution: when the team grew, the milestones (first £100m arranged, first equity release case, first commercial deal), and what's stayed the same throughout — the focus on honest advice and patient handling of complex cases.]`}
+              {`[Continue with the practical evolution: when the team grew, the milestones (first £100m arranged, first equity release case, first commercial deal), and what's stayed the same throughout. The focus on honest advice and patient handling of complex cases.]`}
             </p>
             <p>
               {`[Close with the present: where the firm is today and what kinds of borrowers you most enjoy helping. This sets up the team section below.]`}
@@ -162,7 +162,7 @@ export default function AboutPage() {
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {team.map((t) => (
               <div key={t.name} className="rounded-2xl border border-brand-border bg-white p-6 shadow-soft">
-                {/* Photo placeholder — replace with next/image when client supplies headshots */}
+                {/* Photo placeholder. Replace with next/image when client supplies headshots. */}
                 <div className="aspect-square w-full rounded-2xl bg-gradient-to-br from-brand-divider to-brand-border" aria-hidden />
                 <div className="mt-5">
                   <h3 className="text-lg font-semibold text-brand-ink">{t.name}</h3>
@@ -225,7 +225,7 @@ export default function AboutPage() {
                 key={b.label}
                 className="rounded-2xl border border-brand-border bg-white p-5 text-center shadow-soft"
               >
-                {/* Placeholder badge — replace with client's actual logos */}
+                {/* Placeholder badge. Replace with client's actual logos. */}
                 <div className="mx-auto mb-3 grid h-12 w-12 place-items-center rounded-xl bg-brand-divider text-brand-black font-bold">
                   ✓
                 </div>

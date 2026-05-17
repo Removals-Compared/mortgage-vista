@@ -17,7 +17,7 @@ import { siteConfig } from "@/config/site";
 import { ratesConfig } from "@/config/rates";
 
 export const metadata = {
-  title: "UK Mortgage Brokers — First-Time Buyer, Remortgage, Buy-to-Let",
+  title: "UK Mortgage Brokers | First-Time Buyer, Remortgage, Buy-to-Let",
   description: siteConfig.description,
 };
 
@@ -45,7 +45,7 @@ export default async function HomePage() {
               </h2>
               <p className="mt-4 text-brand-muted">
                 Drop in your figures to see what your monthly payments would
-                look like at today&apos;s rates. No sign-up, no email — just the
+                look like at today&apos;s rates. No sign-up, no email. Just the
                 maths.
               </p>
               <div className="mt-6">
@@ -57,7 +57,7 @@ export default async function HomePage() {
                 </Button>
               </div>
               <div className="mt-6 rounded-2xl border border-brand-border bg-white p-4 text-xs text-brand-muted">
-                Default rate set to <strong className="text-brand-ink">{ratesConfig.defaultCalculatorRate}%</strong> —
+                Default rate set to <strong className="text-brand-ink">{ratesConfig.defaultCalculatorRate}%</strong>,
                 an average two-year fixed at the time of writing. Real deals
                 vary by lender, credit profile and product fees.
               </div>

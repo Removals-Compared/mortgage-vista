@@ -153,7 +153,7 @@ export function MonthlyRepaymentCalculator({ compact = false }: { compact?: bool
           />
           <ResultCard
             label="Loan-to-value"
-            value={result.ltv != null ? formatPercent(result.ltv, 1) : "—"}
+            value={result.ltv != null ? formatPercent(result.ltv, 1) : "n/a"}
           />
         </div>
         {!compact && (

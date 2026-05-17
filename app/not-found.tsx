@@ -13,7 +13,7 @@ export default function NotFound() {
           Page not found
         </h1>
         <p className="mt-5 text-brand-muted">
-          That page doesn&apos;t exist — or it has moved. Try the homepage, or
+          That page doesn&apos;t exist, or it has moved. Try the homepage, or
           jump straight to the calculator.
         </p>
         <div className="mt-8 flex justify-center gap-3">

@@ -228,7 +228,7 @@ export default async function ServicePage({
       )}
 
       <FAQ
-        title={`${data.title} — Frequently asked`}
+        title={`${data.title}: Frequently asked`}
         items={data.faqs}
         bg="white"
       />

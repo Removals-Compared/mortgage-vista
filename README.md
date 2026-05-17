@@ -1,4 +1,4 @@
-# Mortgage Vista Limited — Website
+# Mortgage Vista Limited Website
 
 Production-ready Next.js 16 website for a UK mortgage broker. Built to FCA-conscious, conversion-optimised, accessibility-first standards.
 
@@ -42,7 +42,7 @@ app/
   (legal)/             # Privacy, cookie, terms, complaints, regulatory
   calculator/          # Three calculators on tabs
   api/                 # Form & calculator email endpoints
-  layout.tsx           # Root layout — fonts, header, footer, cookie banner
+  layout.tsx           # Root layout: fonts, header, footer, cookie banner
   globals.css          # Tailwind + brand tokens
   sitemap.ts           # Auto-generated sitemap.xml
   robots.ts            # robots.txt
@@ -56,7 +56,7 @@ components/
   ui/                  # Button, Input, Card, Tabs, etc.
 
 config/
-  rates.ts             # Base rate, SDLT bands, market averages — single source of truth
+  rates.ts             # Base rate, SDLT bands, market averages (single source of truth)
   site.ts              # Company contact, FCA FRN, regulatory wording
   navigation.ts        # Header, footer, services list
 
@@ -94,7 +94,7 @@ When HMRC changes Stamp Duty, edit `stampDutyBands`, `firstTimeBuyerBands`, `ftb
 
 ### Update company contact details, FRN, ICO number
 
-Open `config/site.ts`. Replace the `[CLIENT TO PROVIDE]` and `[FRN PLACEHOLDER]` markers with real values. Don't invent an FRN — it must come from the FCA Register.
+Open `config/site.ts`. Replace the `[CLIENT TO PROVIDE]` and `[FRN PLACEHOLDER]` markers with real values. Don't invent an FRN. It must come from the FCA Register.
 
 ### Add a blog post
 
@@ -120,7 +120,7 @@ The post appears in the listing automatically and gets its own `/insights/<slug>
 
 Service pages are driven by `content/services.ts`. Add a new entry keyed by slug, then add the slug to `config/navigation.ts` `services`.
 
-## Forms — wiring real email delivery
+## Forms: wiring real email delivery
 
 All three API routes (`app/api/contact`, `app/api/newsletter`, `app/api/calculator-result`) currently log submissions to the console. Each file's header documents exactly how to switch to a real provider.
 
@@ -140,7 +140,7 @@ MAIL_TO=advisers@yourdomain.co.uk
 
 Then in `app/api/contact/route.ts`, replace the `// TODO: send email` comment with the snippet documented in the file header.
 
-For the newsletter you may prefer Mailchimp, ConvertKit, or Resend Audiences — see the comments in `app/api/newsletter/route.ts`.
+For the newsletter you may prefer Mailchimp, ConvertKit, or Resend Audiences. See the comments in `app/api/newsletter/route.ts`.
 
 ## Required environment variables
 
@@ -161,7 +161,7 @@ MAILCHIMP_SERVER=
 CONVERTKIT_API_KEY=
 CONVERTKIT_FORM_ID=
 
-# Site URL — used by sitemap.xml and OG tags
+# Site URL, used by sitemap.xml and OG tags
 NEXT_PUBLIC_SITE_URL=https://www.mortgagevista.co.uk
 
 # Optional: GA4 / Plausible
@@ -180,7 +180,7 @@ Update `config/site.ts` `url` and any meta where appropriate.
 6. Add your domain under **Settings → Domains** and update DNS as instructed.
 7. After deploy, update `NEXT_PUBLIC_SITE_URL` and `siteConfig.url` to the live URL so OG tags and sitemap point to production.
 
-## Compliance & legal — what still needs doing
+## Compliance & legal: what still needs doing
 
 - [ ] Replace `[FRN PLACEHOLDER]` in `config/site.ts` with the firm's real FCA Firm Reference Number
 - [ ] Replace company number, ICO registration, address, phone in `config/site.ts`
@@ -189,7 +189,7 @@ Update `config/site.ts` `url` and any meta where appropriate.
 - [ ] Fill in `[CLIENT TO PROVIDE]` blocks on About → Our Story
 - [ ] Update legal pages in `app/(legal)/` with the firm's real signing date
 - [ ] Sense-check the SDLT bands in `config/rates.ts` against the HMRC site at the start of each tax year
-- [ ] If you're advising on equity release, confirm the firm is an Equity Release Council member-firm — this is referenced in the regulatory disclosure
+- [ ] If you're advising on equity release, confirm the firm is an Equity Release Council member-firm. This is referenced in the regulatory disclosure
 
 ## Brand discipline
 
@@ -199,7 +199,7 @@ The brand uses black + white + a single gold accent (`#EBAB23`). The discipline 
 - Gold is **never** used for body copy, small links, or as a large fill.
 - Buttons: `variant="gold"` (the default) gives gold bg + black text.
 - Hero sections use black bg + white text + a single gold CTA.
-- Most of the page is white or `bg-brand-surface` — let black and gold work through contrast.
+- Most of the page is white or `bg-brand-surface`. Let black and gold work through contrast.
 
 ## Performance, a11y, SEO
 
@@ -221,4 +221,4 @@ The brand uses black + white + a single gold accent (`#EBAB23`). The discipline 
 
 ## License
 
-Proprietary — © Mortgage Vista Limited. All rights reserved.
+Proprietary. © Mortgage Vista Limited. All rights reserved.

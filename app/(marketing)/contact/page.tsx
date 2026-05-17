@@ -5,7 +5,7 @@ import { QuickQuoteForm } from "@/components/forms/QuickQuoteForm";
 import { siteConfig } from "@/config/site";
 
 export const metadata = {
-  title: "Contact Us — Mortgage Vista Limited",
+  title: "Contact Us | Mortgage Vista Limited",
   description:
     "Speak to a UK mortgage adviser. Free initial consultation, no obligation. Call, email, WhatsApp, or use the form.",
 };
@@ -88,7 +88,7 @@ export default function ContactPage() {
             <div className="lg:col-span-8 space-y-6">
               <ContactForm />
 
-              {/* Map placeholder — replace embed src with the office's Google Maps URL */}
+              {/* Map placeholder. Replace embed src with the office's Google Maps URL. */}
               <div className="overflow-hidden rounded-2xl border border-brand-border bg-white shadow-soft">
                 <iframe
                   title="Office location"

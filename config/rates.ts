@@ -53,7 +53,7 @@ export const ratesConfig = {
   /** Default loan term in years. */
   defaultTerm: 25,
 
-  /** Standard SDLT bands — England & Northern Ireland, single residential property. */
+  /** Standard SDLT bands for England & Northern Ireland, single residential property. */
   stampDutyBands: [
     { from: 0, to: 125_000, rate: 0 },
     { from: 125_000, to: 250_000, rate: 0.02 },
@@ -62,7 +62,7 @@ export const ratesConfig = {
     { from: 1_500_000, to: Infinity, rate: 0.12 },
   ] as SdltBand[],
 
-  /** First-time buyer SDLT relief — applies to properties up to ftbCap only. */
+  /** First-time buyer SDLT relief. Applies to properties up to ftbCap only. */
   firstTimeBuyerBands: [
     { from: 0, to: 300_000, rate: 0 },
     { from: 300_000, to: 500_000, rate: 0.05 },

@@ -81,8 +81,8 @@ export function StampDutyCalculator() {
 
         <div className="rounded-xl bg-brand-surface p-4 text-xs text-brand-muted">
           SDLT rates shown are for England and Northern Ireland. Scotland uses
-          LBTT and Wales uses LTT — different bands and reliefs apply. Confirm
-          the figure with your conveyancer before completion.
+          LBTT and Wales uses LTT, which have different bands and reliefs.
+          Confirm the figure with your conveyancer before completion.
         </div>
       </div>
 

@@ -21,7 +21,7 @@ const testimonials: Testimonial[] = [
   {
     name: "James Okonkwo",
     role: "Remortgage, Manchester",
-    body: "I was about to fix with my existing bank at 5.39%. Within two days they showed me a five-year deal at 4.04% with the same monthly outgoings — saving me close to £180 a month.",
+    body: "I was about to fix with my existing bank at 5.39%. Within two days they showed me a five-year deal at 4.04% with the same monthly outgoings. That's close to £180 a month back in my pocket.",
     rating: 5,
   },
   {
@@ -33,13 +33,13 @@ const testimonials: Testimonial[] = [
   {
     name: "Margaret & Geoff Rowe",
     role: "Equity release, Bath",
-    body: "Patient, properly explained, and never once pushy. The adviser walked us and our daughter through every option — including the ones we ended up not taking.",
+    body: "Patient, properly explained, and never once pushy. The adviser walked us and our daughter through every option, including the ones we ended up not taking.",
     rating: 5,
   },
   {
     name: "Daniel Murphy",
     role: "Self-employed, Glasgow",
-    body: "One year of accounts and a freshly registered limited company — I assumed it was hopeless. They got me a 4.49% five-year fix with 15% deposit. Couldn't be happier.",
+    body: "One year of accounts and a freshly registered limited company. I assumed it was hopeless. They got me a 4.49% five-year fix with 15% deposit. Couldn't be happier.",
     rating: 5,
   },
 ];

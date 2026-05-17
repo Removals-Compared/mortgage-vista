@@ -54,7 +54,7 @@ export default function CookiePolicy() {
           (the cookie icon) to update your settings.
         </li>
         <li>
-          You can also block or delete cookies via your browser settings — see
+          You can also block or delete cookies via your browser settings. See
           the help section of your browser for instructions.
         </li>
       </ul>

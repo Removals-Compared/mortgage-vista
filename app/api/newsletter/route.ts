@@ -43,7 +43,7 @@ export async function POST(req: Request) {
     );
   }
 
-  // TODO: subscribe email via the chosen ESP — see file header.
+  // TODO: subscribe email via the chosen ESP. See file header.
   console.log("[newsletter] subscribed:", parsed.data.email);
 
   return NextResponse.json({ ok: true });

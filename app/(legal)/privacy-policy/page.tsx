@@ -43,24 +43,24 @@ export default function PrivacyPolicy() {
       <p>We collect the following categories of personal data:</p>
       <ul>
         <li>
-          <strong>Identity and contact data</strong> — name, address,
+          <strong>Identity and contact data</strong>: name, address,
           telephone, email, date of birth.
         </li>
         <li>
-          <strong>Financial data</strong> — income, outgoings, employment
+          <strong>Financial data</strong>: income, outgoings, employment
           status, bank statements, credit history, existing borrowings.
         </li>
         <li>
-          <strong>Property data</strong> — property addresses, valuations,
+          <strong>Property data</strong>: property addresses, valuations,
           tenure, EPC ratings.
         </li>
         <li>
-          <strong>Identity verification data</strong> — passport, driving
+          <strong>Identity verification data</strong>: passport, driving
           licence, biometric checks (where required for anti-money-laundering
           checks).
         </li>
         <li>
-          <strong>Technical data</strong> — IP address, browser type, device
+          <strong>Technical data</strong>: IP address, browser type, device
           information, pages visited.
         </li>
       </ul>
@@ -72,20 +72,20 @@ export default function PrivacyPolicy() {
       </p>
       <ul>
         <li>
-          <strong>Contract</strong> — to provide mortgage advice and arrange a
+          <strong>Contract</strong>: to provide mortgage advice and arrange a
           mortgage on your behalf.
         </li>
         <li>
-          <strong>Legal obligation</strong> — to meet our regulatory
+          <strong>Legal obligation</strong>: to meet our regulatory
           obligations under the FCA, HMRC, and the Money Laundering
           Regulations 2017.
         </li>
         <li>
-          <strong>Legitimate interests</strong> — to keep records, prevent
+          <strong>Legitimate interests</strong>: to keep records, prevent
           fraud, and improve our service.
         </li>
         <li>
-          <strong>Consent</strong> — for marketing communications, where you
+          <strong>Consent</strong>: for marketing communications, where you
           have explicitly opted in.
         </li>
       </ul>

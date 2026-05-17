@@ -15,7 +15,7 @@ const homepageFaqs: FAQItem[] = [
   },
   {
     q: "Should I go to my bank or use a mortgage broker?",
-    a: "Your bank can only offer you their own products. A whole-of-market broker compares 90+ lenders, many of whom you can't access directly — including building societies that handle complex incomes, contractor pay, or recent credit issues. In most cases the broker route is materially cheaper across the term.",
+    a: "Your bank can only offer you their own products. A whole-of-market broker compares 90+ lenders, many of whom you can't access directly, including building societies that handle complex incomes, contractor pay, or recent credit issues. In most cases the broker route is materially cheaper across the term.",
   },
   {
     q: "How long does it take to get a mortgage?",
@@ -23,19 +23,19 @@ const homepageFaqs: FAQItem[] = [
   },
   {
     q: "Do you charge a broker fee?",
-    a: "Initial consultations are always free. If you decide to use us we may charge an arrangement fee, which we'll confirm in writing before any work begins. We're paid a procuration fee by the lender on completion — this is disclosed transparently.",
+    a: "Initial consultations are always free. If you decide to use us we may charge an arrangement fee, which we'll confirm in writing before any work begins. We're paid a procuration fee by the lender on completion, and this is disclosed transparently.",
   },
   {
     q: "Can I get a mortgage if I'm self-employed?",
-    a: "Yes — we have lenders that accept one year of accounts (some accept day-rate contractor income with a current contract only). The key is presenting your income correctly. We'll tell you which lenders fit your profile before you apply, so you don't waste a credit search.",
+    a: "Yes. We have lenders that accept one year of accounts (some accept day-rate contractor income with a current contract only). The key is presenting your income correctly. We'll tell you which lenders fit your profile before you apply, so you don't waste a credit search.",
   },
   {
     q: "What's the difference between a fixed and tracker mortgage?",
-    a: "A fix locks in your rate for a set period (typically 2, 3, 5, or 10 years) — you know exactly what you'll pay each month. A tracker moves up and down with the Bank of England base rate. Fixes give certainty; trackers give flexibility and can be cheaper if rates fall. We'll model both for your situation.",
+    a: "A fix locks in your rate for a set period (typically 2, 3, 5, or 10 years), so you know exactly what you'll pay each month. A tracker moves up and down with the Bank of England base rate. Fixes give certainty. Trackers give flexibility and can be cheaper if rates fall. We'll model both for your situation.",
   },
   {
     q: "What credit history do I need?",
-    a: "Lenders look at the full picture, not just a credit score. A clean record helps, but defaults, CCJs, late payments, even past bankruptcy don't necessarily rule you out — they just narrow which lenders will say yes. Specialist lenders consider context and time elapsed.",
+    a: "Lenders look at the full picture, not just a credit score. A clean record helps, but defaults, CCJs, late payments, even past bankruptcy don't necessarily rule you out. They just narrow which lenders will say yes. Specialist lenders consider context and time elapsed.",
   },
   {
     q: "How much can I borrow?",
