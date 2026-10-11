@@ -120,46 +120,32 @@ The post appears in the listing automatically and gets its own `/insights/<slug>
 
 Service pages are driven by `content/services.ts`. Add a new entry keyed by slug, then add the slug to `config/navigation.ts` `services`.
 
-## Forms: wiring real email delivery
+## Forms: Neon storage + email
 
-All three API routes (`app/api/contact`, `app/api/newsletter`, `app/api/calculator-result`) currently log submissions to the console. Each file's header documents exactly how to switch to a real provider.
+The three API routes (`app/api/contact`, `app/api/newsletter`, `app/api/calculator-result`) save to a Neon Postgres database and send email over SMTP.
 
-**Recommended: Resend.**
+- **Contact and quick-quote enquiries** are saved in `enquiries` and emailed to `MAIL_TO` (the visitor's address is set as Reply-To). Success is shown if either the save or the email worked; if both fail the form shows an error so a lead is never silently lost.
+- **Newsletter sign-ups** are saved in `newsletter_subscribers` (one row per address) and each new address is emailed to `MAIL_TO` (capped at 20 alerts an hour). There is no email service wired up: export the table to send newsletters. If the database is down, the alert email is the only record.
+- **"Email me my results"** emails a branded summary (with the risk warning from `config/site.ts`) to the visitor, keeps the address as a low-intent lead in `calculator_leads`, and sends a short lead notice to `MAIL_TO`. Capped at 3 emails per address and 100 in total per hour.
+- **Email design:** all emails use the shared layout in `lib/email-template.ts` (black header with the logo, gold accent). The logo is embedded in `lib/email-logo.ts` and attached inline, so it shows even before the website domain is live. If the logo changes, regenerate that file from `public/brand/logo-on-dark-160.png`.
 
-```bash
-npm install resend
-```
-
-Add to `.env.local`:
-
-```env
-RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxxxxx
-MAIL_FROM=enquiries@yourdomain.co.uk
-MAIL_TO=advisers@yourdomain.co.uk
-```
-
-Then in `app/api/contact/route.ts`, replace the `// TODO: send email` comment with the snippet documented in the file header.
-
-For the newsletter you may prefer Mailchimp, ConvertKit, or Resend Audiences. See the comments in `app/api/newsletter/route.ts`.
+Setup: create a Neon project, run `db/schema.sql` against it once, and set the variables below in Vercel (Production and Preview). Without `DATABASE_URL` the forms are email-only; without SMTP settings they store only (calculator results can't be sent).
 
 ## Required environment variables
 
-Create a `.env.local` from this template:
+Create a `.env.local` from `.env.example`:
 
 ```env
-# Email delivery (Resend, SendGrid, or your choice)
-RESEND_API_KEY=
+# Neon Postgres (pooled connection string)
+DATABASE_URL=
+
+# SMTP (e.g. a Gmail app password)
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=465
+SMTP_USER=
+SMTP_PASS=
 MAIL_FROM=
 MAIL_TO=
-
-# Newsletter ESP (pick one set)
-MAILCHIMP_API_KEY=
-MAILCHIMP_AUDIENCE_ID=
-MAILCHIMP_SERVER=
-
-# Or:
-CONVERTKIT_API_KEY=
-CONVERTKIT_FORM_ID=
 
 # Site URL, used by sitemap.xml and OG tags
 NEXT_PUBLIC_SITE_URL=https://www.mortgagevista.co.uk
