@@ -1,16 +1,19 @@
 import { NextResponse } from "next/server";
 import { calculatorEmailSchema } from "@/lib/validations";
+import { getDb, insertRow } from "@/lib/db";
+import { sendMail } from "@/lib/mail";
+import { buildCalculatorEmail } from "@/lib/calculator-email";
 
 export const runtime = "nodejs";
 
+// Per-hour caps so this endpoint can't be used to spam an address (or burn
+// the mailbox's daily sending limit). Only enforced when the database is up.
+const MAX_PER_ADDRESS_PER_HOUR = 3;
+const MAX_TOTAL_PER_HOUR = 100;
+
 /**
- * Email calculator results to the user (and capture as a lead).
- *
- * --- WIRING REAL EMAIL DELIVERY ---
- * See app/api/contact/route.ts for the Resend setup. The email here should
- * include a formatted summary of the calculator inputs and outputs.
- *
- * Recommended: also POST a copy to your CRM as a low-intent lead.
+ * Email calculator results to the visitor, and keep the address as a
+ * low-intent lead in Neon.
  */
 export async function POST(req: Request) {
   let body: unknown;
@@ -37,12 +40,73 @@ export async function POST(req: Request) {
       { status: 422 },
     );
   }
+  const { email, resultsType, payload } = parsed.data;
 
-  // TODO: send a formatted results email. See file header.
-  console.log(
-    `[calculator-result] ${parsed.data.resultsType} -> ${parsed.data.email}`,
-    parsed.data.payload,
-  );
+  // The calculators send a handful of numbers; refuse anything bigger.
+  const payloadJson = JSON.stringify(payload);
+  if (payloadJson.length > 2000) {
+    return NextResponse.json({ error: "Payload too large" }, { status: 422 });
+  }
+
+  const db = getDb();
+  if (db) {
+    try {
+      const [c] = await db.query<{ per_address: number; total: number }>(
+        `SELECT count(*) FILTER (WHERE lower(email) = lower($1))::int AS per_address,
+                count(*)::int AS total
+           FROM calculator_leads
+          WHERE created_at > now() - interval '1 hour'`,
+        [email],
+      );
+      if (
+        c &&
+        (c.per_address >= MAX_PER_ADDRESS_PER_HOUR ||
+          c.total >= MAX_TOTAL_PER_HOUR)
+      ) {
+        return NextResponse.json(
+          { error: "Too many requests. Please try again later." },
+          { status: 429 },
+        );
+      }
+    } catch (err) {
+      console.error("[calculator-result] throttle check failed", err);
+    }
+  }
+
+  // Keep the lead whether or not the email goes out.
+  let leadId: string | null = null;
+  if (db) {
+    try {
+      leadId = await insertRow(db, "calculator_leads", {
+        email,
+        results_type: resultsType,
+        payload: payloadJson,
+      });
+    } catch (err) {
+      console.error("[calculator-result] database insert failed", err);
+    }
+  }
+
+  const mail = buildCalculatorEmail(resultsType, payload);
+  try {
+    await sendMail({ to: email, ...mail });
+  } catch (err) {
+    console.error("[calculator-result] email failed", err);
+    return NextResponse.json(
+      { error: "We couldn't send your results right now. Please try again." },
+      { status: 502 },
+    );
+  }
+
+  if (db && leadId) {
+    try {
+      await db.query("UPDATE calculator_leads SET emailed = true WHERE id = $1", [
+        leadId,
+      ]);
+    } catch {
+      /* cosmetic flag only */
+    }
+  }
 
   return NextResponse.json({ ok: true });
 }

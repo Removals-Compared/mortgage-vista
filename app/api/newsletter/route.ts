@@ -1,20 +1,17 @@
 import { NextResponse } from "next/server";
 import { newsletterSchema } from "@/lib/validations";
+import { getDb, insertRow } from "@/lib/db";
+import { mailTo, sendMail } from "@/lib/mail";
+import { siteConfig } from "@/config/site";
 
 export const runtime = "nodejs";
 
 /**
  * Newsletter subscription endpoint.
  *
- * --- WIRING A REAL ESP ---
- * Pick one of:
- *   Mailchimp:   `MAILCHIMP_API_KEY`, `MAILCHIMP_AUDIENCE_ID`, `MAILCHIMP_SERVER`
- *   ConvertKit:  `CONVERTKIT_API_KEY`, `CONVERTKIT_FORM_ID`
- *   Resend Audiences: `RESEND_API_KEY`, `RESEND_AUDIENCE_ID`
- *
- * Document the chosen provider's keys in your README and `.env.example`,
- * then replace the `// TODO: subscribe email` block below with the
- * provider's REST call.
+ * Sign-ups are stored in Neon (one row per address, repeat sign-ups are a
+ * no-op). If storage is unavailable, the address is emailed to MAIL_TO so it
+ * is not lost. There is no ESP wired up: export the table to send newsletters.
  */
 export async function POST(req: Request) {
   let body: unknown;
@@ -43,8 +40,45 @@ export async function POST(req: Request) {
     );
   }
 
-  // TODO: subscribe email via the chosen ESP. See file header.
-  console.log("[newsletter] subscribed:", parsed.data.email);
+  const email = parsed.data.email.trim();
+
+  let stored = false;
+  const db = getDb();
+  if (db) {
+    try {
+      await insertRow(db, "newsletter_subscribers", { email }, {
+        onConflictDoNothing: true,
+      });
+      stored = true;
+    } catch (err) {
+      console.error("[newsletter] database insert failed", err);
+    }
+  }
+
+  // Fallback so a sign-up is never silently lost.
+  let emailed = false;
+  if (!stored) {
+    const to = mailTo();
+    if (to) {
+      try {
+        await sendMail({
+          to,
+          subject: `[${siteConfig.shortName}] New newsletter subscriber`,
+          text: `New newsletter sign-up: ${email}\n\n(The database was unavailable, so this email is the only record.)`,
+        });
+        emailed = true;
+      } catch (err) {
+        console.error("[newsletter] fallback email failed", err);
+      }
+    }
+  }
+
+  if (!stored && !emailed) {
+    return NextResponse.json(
+      { error: "We couldn't save your sign-up right now. Please try again." },
+      { status: 502 },
+    );
+  }
 
   return NextResponse.json({ ok: true });
 }
