@@ -1,7 +1,15 @@
 import { NextResponse } from "next/server";
 import { contactSchema, quickQuoteSchema } from "@/lib/validations";
 import { getDb, insertRow } from "@/lib/db";
-import { escapeHtml, mailTo, sendMail } from "@/lib/mail";
+import { mailTo, sendMail } from "@/lib/mail";
+import {
+  callout,
+  detailsTable,
+  emailShell,
+  escapeHtml,
+  paragraph,
+  sectionHeading,
+} from "@/lib/email-template";
 import { siteConfig } from "@/config/site";
 
 export const runtime = "nodejs";
@@ -69,7 +77,7 @@ export async function POST(req: Request) {
       name: `${d.firstName} ${d.lastName}`.trim(),
       email: d.email,
       phone: d.phone || null,
-      postcode: d.postcode,
+      postcode: d.postcode.trim().toUpperCase(),
       propertyValue: d.propertyValue ?? null,
       loanRequired: d.loanRequired ?? null,
       message: d.notes || null,
@@ -162,22 +170,25 @@ export async function POST(req: Request) {
     "",
     "Reply to this email to respond directly: the visitor's address is set as Reply-To.",
   ].join("\n");
-  const html = `
-    <div style="font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; color: #111; max-width: 620px;">
-      <h2 style="margin: 0 0 12px;">New enquiry</h2>
-      <p style="margin: 0 0 14px; padding: 10px 14px; background: #f5f3ee; border-left: 4px solid #b8860b;">${escapeHtml(storageNote)}</p>
-      <table style="border-collapse: collapse;">
-        ${rows
-          .map(
-            ([k, v]) =>
-              `<tr><td style="padding: 3px 14px 3px 0; color: #555;">${escapeHtml(k)}</td><td style="padding: 3px 0;"><strong>${escapeHtml(v)}</strong></td></tr>`,
-          )
-          .join("")}
-      </table>
-      <h3 style="margin: 18px 0 6px;">Message</h3>
-      <p style="white-space: pre-wrap; margin: 0;">${escapeHtml(enquiry.message ?? "(none)")}</p>
-      <p style="margin-top: 22px; color: #777; font-size: 13px;">Reply to this email to respond directly to the visitor.</p>
-    </div>`;
+  const html = emailShell({
+    preheader: `${enquiry.name} (${enquiry.email})${enquiry.enquiryType ? `, ${enquiry.enquiryType}` : ""}`,
+    heading: "New enquiry",
+    subheading: `${enquiry.name} sent a message through the website`,
+    body: [
+      callout(escapeHtml(storageNote), stored ? "ok" : "warn"),
+      detailsTable(rows),
+      sectionHeading("Message"),
+      `<p style="margin:0 0 6px;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;font-size:15px;line-height:1.6;color:#0a0a0a;white-space:pre-wrap;">${escapeHtml(enquiry.message ?? "(none)")}</p>`,
+      paragraph("Reply to this email to respond directly: the visitor's address is set as Reply-To.", {
+        muted: true,
+        small: true,
+      }).replace("margin:0 0 16px", "margin:22px 0 0"),
+    ].join(""),
+    footer: paragraph(
+      `Sent automatically by the ${escapeHtml(siteConfig.shortName)} website.`,
+      { muted: true, small: true },
+    ).replace("margin:0 0 16px", "margin:0"),
+  });
 
   let emailed = false;
   if (to) {

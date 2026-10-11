@@ -1,8 +1,11 @@
 import { NextResponse } from "next/server";
 import { calculatorEmailSchema } from "@/lib/validations";
 import { getDb, insertRow } from "@/lib/db";
-import { sendMail } from "@/lib/mail";
-import { buildCalculatorEmail } from "@/lib/calculator-email";
+import { mailTo, sendMail } from "@/lib/mail";
+import {
+  buildCalculatorEmail,
+  buildCalculatorLeadNotice,
+} from "@/lib/calculator-email";
 
 export const runtime = "nodejs";
 
@@ -96,6 +99,20 @@ export async function POST(req: Request) {
       { error: "We couldn't send your results right now. Please try again." },
       { status: 502 },
     );
+  }
+
+  // Let the advisers know (best-effort: never fails the visitor's request).
+  const to = mailTo();
+  if (to) {
+    try {
+      await sendMail({
+        to,
+        replyTo: email,
+        ...buildCalculatorLeadNotice(resultsType, email, payload),
+      });
+    } catch (err) {
+      console.error("[calculator-result] adviser notification failed", err);
+    }
   }
 
   if (db && leadId) {

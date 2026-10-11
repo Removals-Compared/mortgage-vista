@@ -1,5 +1,8 @@
 import "server-only";
 import nodemailer, { type Transporter } from "nodemailer";
+import { LOGO_CID, LOGO_PNG_BASE64 } from "@/lib/email-logo";
+
+export { escapeHtml } from "@/lib/email-template";
 
 /**
  * Outbound email over SMTP (Gmail app password, or any SMTP provider).
@@ -43,18 +46,21 @@ export type MailInput = {
   replyTo?: string;
 };
 
-/** Sends one email. Throws if email is not configured or the send fails. */
+/** Sends one email. Throws if email is not configured or the send fails.
+ *  The logo is attached inline whenever the HTML references it. */
 export async function sendMail(input: MailInput): Promise<void> {
   const t = getTransporter();
   if (!t) throw new Error("Email is not configured");
-  await t.sendMail({ from: mailFrom(), ...input });
-}
-
-export function escapeHtml(s: string): string {
-  return s
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
+  const attachments = input.html?.includes(`cid:${LOGO_CID}`)
+    ? [
+        {
+          filename: "mortgage-vista-logo.png",
+          content: Buffer.from(LOGO_PNG_BASE64, "base64"),
+          cid: LOGO_CID,
+          contentType: "image/png",
+          contentDisposition: "inline" as const,
+        },
+      ]
+    : undefined;
+  await t.sendMail({ from: mailFrom(), ...input, attachments });
 }

@@ -4,6 +4,7 @@ import * as React from "react";
 import { Mail } from "lucide-react";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
+import { calculatorEmailSchema } from "@/lib/validations";
 
 export function EmailResultsForm({
   resultsType,
@@ -13,11 +14,16 @@ export function EmailResultsForm({
   payload: Record<string, unknown>;
 }) {
   const [email, setEmail] = React.useState("");
-  const [status, setStatus] = React.useState<"idle" | "loading" | "ok" | "err">("idle");
+  const [status, setStatus] = React.useState<"idle" | "loading" | "ok" | "err" | "invalid">("idle");
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
     if (!email) return;
+    // Same rule as the server, so a typo like "name@gmailcom" gets a clear message.
+    if (!calculatorEmailSchema.shape.email.safeParse(email.trim()).success) {
+      setStatus("invalid");
+      return;
+    }
     setStatus("loading");
     try {
       const res = await fetch("/api/calculator-result", {
@@ -60,6 +66,11 @@ export function EmailResultsForm({
       <Button type="submit" size="sm" disabled={status === "loading"}>
         {status === "loading" ? "Sending…" : "Email me my results"}
       </Button>
+      {status === "invalid" && (
+        <p className="text-xs text-brand-error sm:basis-full">
+          Please enter a valid email address, for example name@example.co.uk.
+        </p>
+      )}
       {status === "err" && (
         <p className="text-xs text-brand-error sm:basis-full">
           Couldn&apos;t send. Please try again.

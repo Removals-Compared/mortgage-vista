@@ -125,8 +125,9 @@ Service pages are driven by `content/services.ts`. Add a new entry keyed by slug
 The three API routes (`app/api/contact`, `app/api/newsletter`, `app/api/calculator-result`) save to a Neon Postgres database and send email over SMTP.
 
 - **Contact and quick-quote enquiries** are saved in `enquiries` and emailed to `MAIL_TO` (the visitor's address is set as Reply-To). Success is shown if either the save or the email worked; if both fail the form shows an error so a lead is never silently lost.
-- **Newsletter sign-ups** are saved in `newsletter_subscribers` (one row per address). There is no email service wired up: export the table to send newsletters. If the database is down, the address is emailed to `MAIL_TO` instead.
-- **"Email me my results"** emails a formatted summary (with the risk warning from `config/site.ts`) to the visitor, and keeps the address as a low-intent lead in `calculator_leads`. Capped at 3 emails per address and 100 in total per hour.
+- **Newsletter sign-ups** are saved in `newsletter_subscribers` (one row per address) and each new address is emailed to `MAIL_TO` (capped at 20 alerts an hour). There is no email service wired up: export the table to send newsletters. If the database is down, the alert email is the only record.
+- **"Email me my results"** emails a branded summary (with the risk warning from `config/site.ts`) to the visitor, keeps the address as a low-intent lead in `calculator_leads`, and sends a short lead notice to `MAIL_TO`. Capped at 3 emails per address and 100 in total per hour.
+- **Email design:** all emails use the shared layout in `lib/email-template.ts` (black header with the logo, gold accent). The logo is embedded in `lib/email-logo.ts` and attached inline, so it shows even before the website domain is live. If the logo changes, regenerate that file from `public/brand/logo-on-dark-160.png`.
 
 Setup: create a Neon project, run `db/schema.sql` against it once, and set the variables below in Vercel (Production and Preview). Without `DATABASE_URL` the forms are email-only; without SMTP settings they store only (calculator results can't be sent).
 
