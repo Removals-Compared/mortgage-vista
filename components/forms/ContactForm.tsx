@@ -18,8 +18,6 @@ const enquiryOptions = [
   { value: "buy-to-let", label: "Buy-to-let mortgage" },
   { value: "self-employed", label: "Self-employed mortgage" },
   { value: "bad-credit", label: "Bad credit / specialist lending" },
-  { value: "commercial", label: "Commercial mortgage" },
-  { value: "equity-release", label: "Equity release / later life" },
   { value: "general", label: "Something else" },
 ] as const;
 

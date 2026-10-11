@@ -1,7 +1,7 @@
 import { ShieldAlert } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
-export function RegulatoryNotice({ variant = "standard" }: { variant?: "standard" | "equity-release" }) {
+export function RegulatoryNotice() {
   return (
     <div className="rounded-2xl border border-brand-border bg-brand-surface p-5 text-sm leading-relaxed text-brand-muted">
       <div className="flex items-center gap-2 text-brand-ink">
@@ -12,9 +12,6 @@ export function RegulatoryNotice({ variant = "standard" }: { variant?: "standard
         {siteConfig.regulatory.repossessionWarning}
       </p>
       <p className="mt-2">{siteConfig.regulatory.feeDisclosure}</p>
-      {variant === "equity-release" && (
-        <p className="mt-2">{siteConfig.regulatory.equityReleaseWarning}</p>
-      )}
     </div>
   );
 }

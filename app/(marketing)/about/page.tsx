@@ -41,12 +41,12 @@ const team = [
   {
     name: "[Adviser Name]",
     role: "Specialist Mortgage Adviser",
-    bio: "[CLIENT TO PROVIDE: bio focused on this adviser's area. e.g. self-employed, complex BTL, equity release.]",
+    bio: "[CLIENT TO PROVIDE: bio focused on this adviser's area. e.g. self-employed, complex BTL, remortgaging.]",
   },
   {
     name: "[Adviser Name]",
     role: "Buy-to-Let & Commercial Specialist",
-    bio: "[CLIENT TO PROVIDE: relevant experience with portfolio landlords, limited-company SPVs, commercial premises.]",
+    bio: "[CLIENT TO PROVIDE: relevant experience with portfolio landlords, limited-company SPVs, buy-to-let.]",
   },
   {
     name: "[Adviser Name]",
@@ -90,7 +90,7 @@ export default function AboutPage() {
               {`[CLIENT TO PROVIDE: the founding story. When was the company started, why, and by whom? Two or three short paragraphs. Mention any defining moments: the first complex case you took on, why you decided to stay independent, the values you brought from previous roles.]`}
             </p>
             <p>
-              {`[Continue with the practical evolution: when the team grew, the milestones (first £100m arranged, first equity release case, first commercial deal), and what's stayed the same throughout. The focus on honest advice and patient handling of complex cases.]`}
+              {`[Continue with the practical evolution: when the team grew, the milestones, and what's stayed the same throughout. The focus on honest advice and patient handling of complex cases.]`}
             </p>
             <p>
               {`[Close with the present: where the firm is today and what kinds of borrowers you most enjoy helping. This sets up the team section below.]`}
@@ -188,20 +188,8 @@ export default function AboutPage() {
           </div>
 
           <div className="mx-auto mt-10 max-w-3xl rounded-2xl border border-brand-border bg-white p-7 text-center shadow-soft">
-            {/*
-              FCA AUTHORISATION STATEMENT
-              ----------------------------------------------------------------
-              IMPORTANT: This is a placeholder. Replace the FRN below with the
-              client's REAL Firm Reference Number from the FCA Register.
-              Do not invent or guess.
-            */}
             <p className="text-sm leading-relaxed text-brand-ink">
-              <strong>{siteConfig.name}</strong> is authorised and regulated by
-              the Financial Conduct Authority. FCA Firm Reference Number{" "}
-              <span className="font-mono text-brand-gold-hover">
-                {siteConfig.regulatory.fcaFrn}
-              </span>
-              . You can verify our authorisation on the{" "}
+              {siteConfig.regulatory.statement} You can verify this on the{" "}
               <a
                 className="font-semibold underline"
                 href={siteConfig.regulatory.fcaRegisterUrl}
@@ -214,11 +202,10 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-4 sm:grid-cols-3">
             {[
-              { label: "FCA authorised", note: "Direct authorisation" },
-              { label: "Equity Release Council", note: "Member firm" },
-              { label: "FOS scheme", note: "Financial Ombudsman" },
+              { label: "FCA authorised", note: "Trading style of TMG Direct Ltd" },
+              { label: "FOS scheme", note: "Financial Ombudsman cover" },
               { label: "ICO registered", note: "Data protection" },
             ].map((b) => (
               <div

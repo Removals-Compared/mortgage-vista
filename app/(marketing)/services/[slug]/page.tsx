@@ -20,6 +20,12 @@ export async function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
 }
 
+// Any slug not in the services list 404s instead of being rendered on demand.
+// This matters because the firm is not currently authorised to advise on
+// commercial mortgages or equity release: those entries still exist in
+// serviceContent for future use, but we must not serve those URLs today.
+export const dynamicParams = false;
+
 export async function generateMetadata({
   params,
 }: {
@@ -163,6 +169,18 @@ export default async function ServicePage({
                   {data.extraWarning}
                 </div>
               )}
+
+              {/*
+                FCA-required footnote for services where the product sits
+                outside the FCA perimeter (currently buy-to-let for
+                investment purposes). Rendered last so it's the final thing
+                the visitor reads on the page.
+              */}
+              {data.regulatoryFootnote && (
+                <p className="mt-12 border-t border-brand-border pt-6 text-xs italic leading-relaxed text-brand-muted">
+                  {data.regulatoryFootnote}
+                </p>
+              )}
             </div>
 
             {/* Sidebar */}
@@ -188,9 +206,7 @@ export default async function ServicePage({
                 <QuickQuoteForm context={data.title} />
               </div>
 
-              <RegulatoryNotice
-                variant={data.slug === "equity-release" ? "equity-release" : "standard"}
-              />
+              <RegulatoryNotice />
             </aside>
           </div>
         </Container>

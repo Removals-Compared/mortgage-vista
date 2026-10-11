@@ -18,6 +18,10 @@ export type ServiceContent = {
   showsCalculator: "repayment" | "affordability" | "stamp-duty";
   // Optional extra warning paragraph (use for equity-release only)
   extraWarning?: string;
+  // Short regulatory footnote rendered at the very end of the page body.
+  // Used for buy-to-let, where the FCA requires an explicit statement that
+  // investment BTL mortgages are generally unregulated.
+  regulatoryFootnote?: string;
 };
 
 export const serviceContent: Record<string, ServiceContent> = {
@@ -465,6 +469,8 @@ We'll always model the actual cashflow before you commit, including void periods
     ],
     relatedPostSlugs: ["buy-to-let-tax-rules", "uk-base-rate-outlook-2026"],
     showsCalculator: "repayment",
+    regulatoryFootnote:
+      "Buy-to-let mortgages for investment purposes are generally not regulated by the FCA, and therefore do not benefit from the same regulatory protections as residential mortgages.",
   },
 
   "self-employed-mortgages": {

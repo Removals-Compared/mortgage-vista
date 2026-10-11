@@ -9,8 +9,6 @@ export const contactSchema = z.object({
     "buy-to-let",
     "self-employed",
     "bad-credit",
-    "commercial",
-    "equity-release",
     "general",
   ]),
   firstName: z.string().min(2, "Please enter your first name"),

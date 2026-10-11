@@ -39,20 +39,10 @@ export const services = [
     summary: "Defaults, CCJs, late payments. Specialist lenders who look at the full picture.",
     icon: "ShieldCheck",
   },
-  {
-    slug: "commercial-mortgages",
-    title: "Commercial Mortgages",
-    short: "Commercial",
-    summary: "Owner-occupied premises, semi-commercial, and investment property finance.",
-    icon: "Store",
-  },
-  {
-    slug: "equity-release",
-    title: "Equity Release",
-    short: "Equity Release",
-    summary: "Lifetime mortgages and home reversion for homeowners over 55.",
-    icon: "Coins",
-  },
+  // Commercial mortgages and equity release are intentionally not listed:
+  // the firm does not currently hold the FCA permissions to advise on them.
+  // Add them back here (and ensure the serviceContent entries are correct)
+  // once those permissions are confirmed.
 ] as const;
 
 export type ServiceSlug = (typeof services)[number]["slug"];
