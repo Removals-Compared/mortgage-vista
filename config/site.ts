@@ -38,20 +38,35 @@ export const siteConfig = {
   },
 
   /**
-   * FCA & regulatory placeholders.
-   * IMPORTANT: do not invent an FRN. Replace with the client's real
-   * Firm Reference Number issued by the Financial Conduct Authority.
+   * Regulatory status.
+   *
+   * Mortgage Vista Limited is NOT separately authorised by the FCA.
+   * It is a trading style of TMG Direct Limited, which holds the FCA
+   * permissions and the ICO registration we rely on.
+   *
+   * If this ever changes (e.g. the firm gains its own FCA direct
+   * authorisation), update the full statement below as well as the
+   * footer and legal pages.
    */
   regulatory: {
-    fcaFrn: "[FRN PLACEHOLDER: replace with real number]",
+    principal: {
+      name: "TMG Direct Limited",
+      fcaFrn: "786245",
+      icoNumber: "ZA178200",
+    },
     fcaRegisterUrl: "https://register.fca.org.uk/",
-    companyNumber: "[COMPANIES HOUSE NO. PLACEHOLDER]",
-    icoNumber: "[ICO REGISTRATION PLACEHOLDER]",
-    /** Repossession warning. Required on every page footer. */
+    /**
+     * The full disclosure statement, rendered verbatim in the footer and
+     * the regulatory-disclosure page. Supplied by the compliance review.
+     */
+    statement:
+      "MortgageVista Limited is a trading style of TMG Direct Limited which is authorised and regulated by the Financial Conduct Authority under Firm Reference No: 786245 and registered with the Data Protection Act 2018 Registration No: ZA178200.",
+    /** Expanded repossession warning. Required on every page footer. */
     repossessionWarning:
-      "Your home may be repossessed if you do not keep up repayments on your mortgage.",
-    equityReleaseWarning:
-      "Equity release will reduce the value of your estate and may affect your entitlement to means-tested benefits. Always consider the long-term impact and consult a qualified adviser.",
+      "Think carefully before securing debts against your home. Your home may be repossessed if you do not keep up repayments on a mortgage or any other debt secured on it.",
+    /** UK scope disclosure. Required on every page footer. */
+    scopeNotice:
+      "The guidance and/or advice contained within this website is subject to the UK regulatory regime and is therefore targeted at consumers based in the UK.",
     feeDisclosure:
       "Initial consultations are free. We may charge a fee for arranging your mortgage which will be confirmed before any work begins.",
   },

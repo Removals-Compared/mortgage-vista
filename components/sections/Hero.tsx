@@ -43,7 +43,7 @@ export function Hero() {
             <TrustBadge
               icon={<ShieldCheck className="h-5 w-5 text-brand-gold" />}
               label="FCA regulated"
-              value="Authorised broker"
+              value="via TMG Direct Ltd"
             />
             <TrustBadge
               icon={<Award className="h-5 w-5 text-brand-gold" />}

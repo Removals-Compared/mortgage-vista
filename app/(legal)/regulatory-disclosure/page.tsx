@@ -11,11 +11,9 @@ export default function RegulatoryDisclosure() {
       </p>
 
       <h2>1. Authorisation</h2>
+      <p>{siteConfig.regulatory.statement}</p>
       <p>
-        {siteConfig.name} is authorised and regulated by the Financial Conduct
-        Authority (FCA). Our Firm Reference Number is{" "}
-        <strong>{siteConfig.regulatory.fcaFrn}</strong>. You can verify our
-        authorisation on the FCA Register at{" "}
+        You can verify this on the FCA Register at{" "}
         <a
           href={siteConfig.regulatory.fcaRegisterUrl}
           target="_blank"
@@ -26,26 +24,23 @@ export default function RegulatoryDisclosure() {
         .
       </p>
 
-      <h2>2. Permitted activities</h2>
-      <p>We are authorised to:</p>
+      <h2>2. What we advise on</h2>
+      <p>Through our principal we are able to:</p>
       <ul>
-        <li>Advise on regulated mortgage contracts</li>
-        <li>Arrange (bring about) regulated mortgage contracts</li>
-        <li>Advise on and arrange equity release products</li>
-        <li>Make introductions to insurance providers</li>
+        <li>Advise on regulated residential mortgage contracts</li>
+        <li>Arrange (bring about) regulated residential mortgage contracts</li>
+        <li>Advise on and arrange buy-to-let mortgages</li>
       </ul>
       <p>
-        [CLIENT TO CONFIRM: list any additional permissions held, e.g.
-        consumer credit, investment advice, protection, second-charge
-        lending.]
+        We do not currently advise on commercial mortgages, equity release or
+        later-life lending.
       </p>
 
-      <h2>3. Whole-of-market or panel?</h2>
+      <h2>3. Scope of service</h2>
       <p>
-        For regulated mortgages we offer a comprehensive range of mortgages
+        For regulated mortgages we offer a comprehensive range of products
         from across the market, sometimes referred to as &quot;whole of
-        market&quot;. For equity release, we offer products from a panel of
-        lenders that meet Equity Release Council standards.
+        market&quot;.
       </p>
 
       <h2>4. Our fees</h2>
@@ -62,10 +57,17 @@ export default function RegulatoryDisclosure() {
         <strong>{siteConfig.regulatory.repossessionWarning}</strong>
       </p>
 
-      <h2>6. Equity release warning</h2>
-      <p>{siteConfig.regulatory.equityReleaseWarning}</p>
+      <h2>6. Buy-to-let</h2>
+      <p>
+        Buy-to-let mortgages for investment purposes are generally not
+        regulated by the FCA, and therefore do not benefit from the same
+        regulatory protections as residential mortgages.
+      </p>
 
-      <h2>7. Complaints and the Financial Ombudsman Service</h2>
+      <h2>7. Scope of advice</h2>
+      <p>{siteConfig.regulatory.scopeNotice}</p>
+
+      <h2>8. Complaints and the Financial Ombudsman Service</h2>
       <p>
         See our <a href="/complaints-procedure">Complaints Procedure</a>. You
         can also contact the Financial Ombudsman Service at{" "}
@@ -79,7 +81,7 @@ export default function RegulatoryDisclosure() {
         .
       </p>
 
-      <h2>8. Financial Services Compensation Scheme (FSCS)</h2>
+      <h2>9. Financial Services Compensation Scheme (FSCS)</h2>
       <p>
         We are covered by the FSCS. The level of cover depends on the type of
         business and the circumstances of the claim. Mortgage advising and
@@ -91,19 +93,14 @@ export default function RegulatoryDisclosure() {
         .
       </p>
 
-      <h2>9. Data protection</h2>
+      <h2>10. Data protection</h2>
       <p>
-        We are registered with the Information Commissioner&apos;s Office under
-        registration number <strong>{siteConfig.regulatory.icoNumber}</strong>.
-        See our <a href="/privacy-policy">Privacy Policy</a> for full details.
-      </p>
-
-      <h2>10. Company information</h2>
-      <p>
-        {siteConfig.name} is registered in England and Wales under company
-        number <strong>{siteConfig.regulatory.companyNumber}</strong>. Our
-        registered office is {siteConfig.contact.addressLine1},{" "}
-        {siteConfig.contact.city} {siteConfig.contact.postcode}.
+        Personal data collected through this website is handled by our
+        principal, <strong>{siteConfig.regulatory.principal.name}</strong>,
+        registered with the Information Commissioner&apos;s Office under
+        registration number{" "}
+        <strong>{siteConfig.regulatory.principal.icoNumber}</strong>. See our{" "}
+        <a href="/privacy-policy">Privacy Policy</a> for full details.
       </p>
     </>
   );

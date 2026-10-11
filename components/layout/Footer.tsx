@@ -61,17 +61,20 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Regulatory wording. Required on every page. */}
+        {/*
+          Regulatory wording. Required on every page.
+          Content supplied by the compliance review. Edit siteConfig.regulatory
+          to update everywhere at once.
+        */}
         <div className="mt-12 border-t border-white/10 pt-8 text-xs leading-relaxed text-white/55 space-y-3">
           <p className="font-semibold text-white">
             {siteConfig.regulatory.repossessionWarning}
           </p>
+          <p>{siteConfig.regulatory.scopeNotice}</p>
           <p>{siteConfig.regulatory.feeDisclosure}</p>
           <p>
-            {siteConfig.name} is authorised and regulated by the Financial Conduct
-            Authority. FCA Firm Reference Number:{" "}
-            <span className="font-mono">{siteConfig.regulatory.fcaFrn}</span>.
-            You can verify our authorisation on the{" "}
+            {siteConfig.regulatory.statement}{" "}
+            You can verify this on the{" "}
             <a
               href={siteConfig.regulatory.fcaRegisterUrl}
               className="underline hover:text-brand-gold"
@@ -81,11 +84,6 @@ export function Footer() {
               FCA Register
             </a>
             .
-          </p>
-          <p>
-            Registered in England and Wales. Company number:{" "}
-            <span className="font-mono">{siteConfig.regulatory.companyNumber}</span>.
-            ICO registration: <span className="font-mono">{siteConfig.regulatory.icoNumber}</span>.
           </p>
           <p className="pt-3 text-white/40">
             © {year} {siteConfig.name}. All rights reserved.

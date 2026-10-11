@@ -13,11 +13,7 @@ export default function TermsOfService() {
       <h2>1. Who we are</h2>
       <p>
         These terms govern your use of {siteConfig.name} (&quot;we&quot;,
-        &quot;us&quot;, &quot;our&quot;), a company registered in England and
-        Wales under company number{" "}
-        <strong>{siteConfig.regulatory.companyNumber}</strong>. We are
-        authorised and regulated by the Financial Conduct Authority (FRN{" "}
-        <strong>{siteConfig.regulatory.fcaFrn}</strong>).
+        &quot;us&quot;, &quot;our&quot;). {siteConfig.regulatory.statement}
       </p>
 
       <h2>2. Use of this website</h2>

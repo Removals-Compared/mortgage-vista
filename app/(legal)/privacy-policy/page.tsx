@@ -22,21 +22,22 @@ export default function PrivacyPolicy() {
 
       <h2>1. Who we are</h2>
       <p>
-        {siteConfig.name} is the data controller responsible for your personal
-        data. We are registered with the Information Commissioner&apos;s Office
-        under registration number{" "}
-        <strong>{siteConfig.regulatory.icoNumber}</strong>. We are authorised
-        and regulated by the Financial Conduct Authority (FRN{" "}
-        <strong>{siteConfig.regulatory.fcaFrn}</strong>).
+        {siteConfig.name} is a trading style of{" "}
+        <strong>{siteConfig.regulatory.principal.name}</strong>. The data
+        controller for your personal information is{" "}
+        {siteConfig.regulatory.principal.name}, registered with the
+        Information Commissioner&apos;s Office under registration number{" "}
+        <strong>{siteConfig.regulatory.principal.icoNumber}</strong> and
+        authorised and regulated by the Financial Conduct Authority under
+        Firm Reference Number{" "}
+        <strong>{siteConfig.regulatory.principal.fcaFrn}</strong>.
       </p>
       <p>
         You can contact us about any privacy matter by email at{" "}
         <a href={`mailto:${siteConfig.contact.email}`}>
           {siteConfig.contact.email}
         </a>
-        , or by post at our registered office:{" "}
-        {siteConfig.contact.addressLine1}, {siteConfig.contact.city}{" "}
-        {siteConfig.contact.postcode}.
+        .
       </p>
 
       <h2>2. The personal data we collect</h2>
