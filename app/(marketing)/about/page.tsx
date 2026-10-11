@@ -104,7 +104,7 @@ export default function AboutPage() {
         <Container className="grid gap-6 py-12 sm:grid-cols-2 lg:grid-cols-4 text-center">
           {[
             { v: siteConfig.stats.yearsExperience + "+", l: "Years of UK advice" },
-            { v: siteConfig.stats.mortgagesArranged, l: "Mortgages arranged" },
+            { v: siteConfig.stats.lenderPanel, l: "Lenders on panel" },
             { v: siteConfig.stats.averageSavings, l: "Avg. saving on remortgage" },
             { v: siteConfig.stats.happyClients, l: "Would recommend us" },
           ].map((s) => (

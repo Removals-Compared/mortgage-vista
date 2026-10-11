@@ -52,8 +52,8 @@ export function Hero() {
             />
             <TrustBadge
               icon={<Users className="h-5 w-5 text-brand-gold" />}
-              label={siteConfig.stats.mortgagesArranged}
-              value="mortgages arranged"
+              label={`${siteConfig.stats.lenderPanel} lenders`}
+              value="whole-of-market panel"
             />
           </div>
         </div>

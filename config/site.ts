@@ -58,7 +58,7 @@ export const siteConfig = {
 
   stats: {
     yearsExperience: 18,
-    mortgagesArranged: "5,200+",
+    lenderPanel: "90+",
     averageSavings: "£3,400",
     happyClients: "98%",
   },
