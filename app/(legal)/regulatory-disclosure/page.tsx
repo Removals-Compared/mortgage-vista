@@ -23,6 +23,11 @@ export default function RegulatoryDisclosure() {
         </a>
         .
       </p>
+      <p>
+        {siteConfig.regulatory.company.name}. Company Registration Number:{" "}
+        {siteConfig.regulatory.company.number}. Registered Office:{" "}
+        {siteConfig.regulatory.company.registeredOffice}.
+      </p>
 
       <h2>2. What we advise on</h2>
       <p>Through our principal we are able to:</p>

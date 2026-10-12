@@ -40,13 +40,14 @@ export const siteConfig = {
   /**
    * Regulatory status.
    *
-   * Mortgage Vista Limited is NOT separately authorised by the FCA.
-   * It is a trading style of TMG Direct Limited, which holds the FCA
-   * permissions and the ICO registration we rely on.
+   * MortgageVista Limited is an Appointed Representative of TMG Direct
+   * Limited (the principal firm, FRN 786245). The statement below is the
+   * wording supplied by TMG Direct's compliance team; it is shown in the
+   * footer, the legal pages and the emails.
    *
    * If this ever changes (e.g. the firm gains its own FCA direct
-   * authorisation), update the full statement below as well as the
-   * footer and legal pages.
+   * authorisation), update the statement and company details below as
+   * well as the legal pages.
    */
   regulatory: {
     principal: {
@@ -60,7 +61,17 @@ export const siteConfig = {
      * the regulatory-disclosure page. Supplied by the compliance review.
      */
     statement:
-      "MortgageVista Limited is a trading style of TMG Direct Limited which is authorised and regulated by the Financial Conduct Authority under Firm Reference No: 786245 and registered with the Data Protection Act 2018 Registration No: ZA178200.",
+      "MortgageVista Limited is registered with the Data Protection Act 2018 registration No. 00012631529 and is authorised and regulated by the Financial Conduct Authority under Firm Reference Number. 1054842 an Appointed Representative of TMG Direct Limited which is authorised and regulated by the Financial Conduct Authority under Firm Reference Number: 786245 and registered with the Data Protection Act 1998 Registration No: ZA178200.",
+    /**
+     * Company details required on business websites and emails. The number
+     * and registered office were checked against Companies House
+     * (MORTGAGEVISTA LIMITED, 16883097, incorporated 1 December 2025).
+     */
+    company: {
+      name: "MortgageVista Limited",
+      number: "16883097",
+      registeredOffice: "2 Blacksmiths Lane, Rainham, Essex, RM13 7AD",
+    },
     /** Expanded repossession warning. Required on every page footer. */
     repossessionWarning:
       "Think carefully before securing debts against your home. Your home may be repossessed if you do not keep up repayments on a mortgage or any other debt secured on it.",

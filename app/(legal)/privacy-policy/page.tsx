@@ -22,7 +22,7 @@ export default function PrivacyPolicy() {
 
       <h2>1. Who we are</h2>
       <p>
-        {siteConfig.name} is a trading style of{" "}
+        {siteConfig.name} is an Appointed Representative of{" "}
         <strong>{siteConfig.regulatory.principal.name}</strong>. The data
         controller for your personal information is{" "}
         {siteConfig.regulatory.principal.name}, registered with the

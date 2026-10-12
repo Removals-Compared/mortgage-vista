@@ -204,7 +204,7 @@ export default function AboutPage() {
 
           <div className="mt-10 grid gap-4 sm:grid-cols-3">
             {[
-              { label: "FCA authorised", note: "Trading style of TMG Direct Ltd" },
+              { label: "FCA authorised", note: "Appointed Representative of TMG Direct Ltd" },
               { label: "FOS scheme", note: "Financial Ombudsman cover" },
               { label: "ICO registered", note: "Data protection" },
             ].map((b) => (

@@ -37,6 +37,16 @@ export function contactEmail(): string {
   return process.env.MAIL_TO || siteConfig.contact.email;
 }
 
+/** Optional "name, company number, registered office" line for email footers. */
+export function companyLine(): string | null {
+  const r = siteConfig.regulatory as Record<string, unknown>;
+  const c = r.company as
+    | { name?: string; number?: string; registeredOffice?: string }
+    | undefined;
+  if (!c || !c.name || !c.number || !c.registeredOffice) return null;
+  return `${c.name}. Company Registration Number: ${c.number}. Registered Office: ${c.registeredOffice}.`;
+}
+
 /** Optional firm-status line (set in config/site.ts by the compliance review). */
 export function regulatoryStatement(): string | null {
   const r = siteConfig.regulatory as Record<string, unknown>;
@@ -135,6 +145,12 @@ export function standardFooter(opts?: { warning?: boolean }): string {
   parts.push(
     `<p style="margin:0;font-family:${FONT};font-size:12px;line-height:1.5;color:${C.muted};">${escapeHtml(siteConfig.name)} &middot; <a href="mailto:${escapeHtml(contactEmail())}" style="color:${C.muted};">${escapeHtml(contactEmail())}</a></p>`,
   );
+  const company = companyLine();
+  if (company) {
+    parts.push(
+      `<p style="margin:12px 0 0;font-family:${FONT};font-size:11px;line-height:1.5;color:${C.soft};">${escapeHtml(company)}</p>`,
+    );
+  }
   const statement = regulatoryStatement();
   if (statement) {
     parts.push(

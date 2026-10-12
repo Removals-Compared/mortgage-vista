@@ -85,6 +85,11 @@ export function Footer() {
             </a>
             .
           </p>
+          <p>
+            {siteConfig.regulatory.company.name}. Company Registration Number:{" "}
+            {siteConfig.regulatory.company.number}. Registered Office:{" "}
+            {siteConfig.regulatory.company.registeredOffice}.
+          </p>
           <p className="pt-3 text-white/40">
             © {year} {siteConfig.name}. All rights reserved.
           </p>
