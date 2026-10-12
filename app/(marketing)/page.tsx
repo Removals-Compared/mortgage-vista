@@ -4,7 +4,6 @@ import { Hero } from "@/components/sections/Hero";
 import { BaseRateBanner } from "@/components/sections/BaseRateBanner";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
 import { HowItWorks } from "@/components/sections/HowItWorks";
-import { Testimonials } from "@/components/sections/Testimonials";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
 import { FAQ } from "@/components/sections/FAQ";
 import { CTASection } from "@/components/sections/CTASection";
@@ -70,7 +69,8 @@ export default async function HomePage() {
       </Section>
 
       <HowItWorks />
-      <Testimonials />
+      {/* Testimonials removed until real, permitted client reviews exist (the
+          previous ones were sample text). Component: sections/Testimonials.tsx */}
       <WhyChooseUs />
 
       {/* Latest insights */}
