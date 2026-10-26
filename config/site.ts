@@ -17,11 +17,13 @@ export const siteConfig = {
     phoneHref: "tel:+447854981155",
     email: "hello@mortgagevista.co.uk",
     whatsapp: "447854981155",
-    // Street address intentionally kept out of the Contact page and the
-    // LocalBusiness schema (client's choice). The registered office at
-    // 2 Blacksmiths Lane, Rainham, Essex, RM13 7AD still appears in the
-    // footer legal line (Companies Act 2006 s.82 requires it) via
-    // `regulatory.company.registeredOffice` below.
+    // Matches the registered office at Companies House (16883097). Shown
+    // on the Contact page and in the LocalBusiness JSON-LD so Google can
+    // link the business to a verified UK address.
+    addressLine1: "2 Blacksmiths Lane",
+    city: "Rainham",
+    region: "Essex",
+    postcode: "RM13 7AD",
     country: "United Kingdom",
   },
 

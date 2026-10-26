@@ -1,4 +1,4 @@
-import { Phone, Mail, Clock, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import { Container, Section } from "@/components/ui/Container";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { QuickQuoteForm } from "@/components/forms/QuickQuoteForm";
@@ -50,6 +50,11 @@ export default function ContactPage() {
                 title="WhatsApp"
                 value="Click to start a chat"
                 href={`https://wa.me/${siteConfig.contact.whatsapp}`}
+              />
+              <ContactBlock
+                icon={MapPin}
+                title="Office"
+                value={`${siteConfig.contact.addressLine1}, ${siteConfig.contact.city}, ${siteConfig.contact.postcode}`}
               />
               <div className="rounded-2xl border border-brand-border bg-white p-5 shadow-soft">
                 <div className="flex items-center gap-2 text-brand-ink">

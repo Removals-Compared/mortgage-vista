@@ -22,15 +22,20 @@ export function organisationSchema() {
 
   const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
-    // No street address available for public display, so this is a
-    // FinancialService rather than a LocalBusiness (which would want
-    // a physical address to be useful).
-    "@type": "FinancialService",
+    "@type": ["LocalBusiness", "FinancialService"],
     name: siteConfig.name,
     url: siteConfig.url,
     description: siteConfig.description,
     telephone: siteConfig.contact.phone,
     email: siteConfig.contact.email,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: siteConfig.contact.addressLine1,
+      addressLocality: siteConfig.contact.city,
+      addressRegion: siteConfig.contact.region,
+      postalCode: siteConfig.contact.postcode,
+      addressCountry: "GB",
+    },
     priceRange: "Free initial consultation",
     areaServed: { "@type": "Country", name: "United Kingdom" },
   };
