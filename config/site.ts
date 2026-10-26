@@ -13,15 +13,15 @@ export const siteConfig = {
   ogImage: "/og-image.png",
 
   contact: {
-    /* TODO: replace placeholders with the client's real details */
-    phone: "[CLIENT TO PROVIDE]",
-    phoneHref: "tel:+440000000000",
+    phone: "07854 981155",
+    phoneHref: "tel:+447854981155",
     email: "hello@mortgagevista.co.uk",
-    whatsapp: "447000000000",
-    addressLine1: "[CLIENT TO PROVIDE]",
-    addressLine2: "[CLIENT TO PROVIDE]",
-    city: "London",
-    postcode: "[CLIENT TO PROVIDE]",
+    whatsapp: "447854981155",
+    // Street address intentionally kept out of the Contact page and the
+    // LocalBusiness schema (client's choice). The registered office at
+    // 2 Blacksmiths Lane, Rainham, Essex, RM13 7AD still appears in the
+    // footer legal line (Companies Act 2006 s.82 requires it) via
+    // `regulatory.company.registeredOffice` below.
     country: "United Kingdom",
   },
 
@@ -31,10 +31,12 @@ export const siteConfig = {
     { day: "Sunday", time: "By appointment" },
   ],
 
+  // Social profiles intentionally empty: no accounts set up yet. Add URLs
+  // here when they exist; the footer and JSON-LD will pick them up.
   social: {
-    linkedin: "https://www.linkedin.com/company/mortgage-vista", // TODO
-    facebook: "https://www.facebook.com/mortgagevista", // TODO
-    instagram: "https://www.instagram.com/mortgagevista", // TODO
+    linkedin: "",
+    facebook: "",
+    instagram: "",
   },
 
   /**

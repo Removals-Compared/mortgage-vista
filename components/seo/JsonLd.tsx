@@ -12,29 +12,32 @@ export function JsonLd({ data }: Props) {
 }
 
 export function organisationSchema() {
-  return {
+  // Only emit non-empty social URLs so empty strings don't show up in
+  // Google's Knowledge Graph as broken sameAs references.
+  const sameAs = [
+    siteConfig.social.linkedin,
+    siteConfig.social.facebook,
+    siteConfig.social.instagram,
+  ].filter((u) => u.length > 0);
+
+  const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "FinancialService"],
+    // No street address available for public display, so this is a
+    // FinancialService rather than a LocalBusiness (which would want
+    // a physical address to be useful).
+    "@type": "FinancialService",
     name: siteConfig.name,
     url: siteConfig.url,
     description: siteConfig.description,
     telephone: siteConfig.contact.phone,
     email: siteConfig.contact.email,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: siteConfig.contact.addressLine1,
-      addressLocality: siteConfig.contact.city,
-      postalCode: siteConfig.contact.postcode,
-      addressCountry: "GB",
-    },
     priceRange: "Free initial consultation",
     areaServed: { "@type": "Country", name: "United Kingdom" },
-    sameAs: [
-      siteConfig.social.linkedin,
-      siteConfig.social.facebook,
-      siteConfig.social.instagram,
-    ],
-  } satisfies Record<string, unknown>;
+  };
+  if (sameAs.length > 0) {
+    schema.sameAs = sameAs;
+  }
+  return schema;
 }
 
 export function faqSchema(items: { q: string; a: string }[]) {

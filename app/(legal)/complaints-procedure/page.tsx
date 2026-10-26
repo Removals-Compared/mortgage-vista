@@ -27,9 +27,9 @@ export default function ComplaintsPage() {
           </a>
         </li>
         <li>
-          <strong>Post:</strong> Compliance Officer, {siteConfig.name},{" "}
-          {siteConfig.contact.addressLine1}, {siteConfig.contact.city}{" "}
-          {siteConfig.contact.postcode}
+          <strong>Post:</strong> Compliance Officer,{" "}
+          {siteConfig.regulatory.company.name},{" "}
+          {siteConfig.regulatory.company.registeredOffice}
         </li>
         <li>
           <strong>Phone:</strong> {siteConfig.contact.phone}

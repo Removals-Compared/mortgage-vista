@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
+import { Phone, Mail, Clock, MessageCircle } from "lucide-react";
 import { Container, Section } from "@/components/ui/Container";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { QuickQuoteForm } from "@/components/forms/QuickQuoteForm";
@@ -51,11 +51,6 @@ export default function ContactPage() {
                 value="Click to start a chat"
                 href={`https://wa.me/${siteConfig.contact.whatsapp}`}
               />
-              <ContactBlock
-                icon={MapPin}
-                title="Office"
-                value={`${siteConfig.contact.addressLine1}, ${siteConfig.contact.city} ${siteConfig.contact.postcode}`}
-              />
               <div className="rounded-2xl border border-brand-border bg-white p-5 shadow-soft">
                 <div className="flex items-center gap-2 text-brand-ink">
                   <Clock className="h-4 w-4" />
@@ -85,22 +80,8 @@ export default function ContactPage() {
             </aside>
 
             {/* Right: detailed form */}
-            <div className="lg:col-span-8 space-y-6">
+            <div className="lg:col-span-8">
               <ContactForm />
-
-              {/* Map placeholder. Replace embed src with the office's Google Maps URL. */}
-              <div className="overflow-hidden rounded-2xl border border-brand-border bg-white shadow-soft">
-                <iframe
-                  title="Office location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.5!2d-0.1276!3d51.5074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDMwJzI2LjYiTiAwwrAwNyc0MC4xIlc!5e0!3m2!1sen!2suk!4v1700000000000"
-                  width="100%"
-                  height="320"
-                  loading="lazy"
-                  className="border-0"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  /* TODO: client to provide their actual Google Maps embed URL */
-                />
-              </div>
             </div>
           </div>
         </Container>
